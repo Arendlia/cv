@@ -20,13 +20,13 @@ html{
   width: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: #222;
 }
 ::-webkit-scrollbar-thumb {
-  background: #FFC300;
+  background: #f96161;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #B11616;
+  background: #f96161;
 }
 /* all similar content styling codes */
 section{
@@ -38,7 +38,7 @@ section{
   margin: auto;
 }
 .about .about-content,
-.services .serv-content
+.core .serv-content
 {
   display: flex;
   flex-wrap: wrap;
@@ -68,7 +68,7 @@ section .title::after{
   bottom: -8px;
   left: 50%;
   font-size: 20px;
-  color: #FFC300 ;
+  color: #f96161 ;
   padding: 0 5px;
   transform: translateX(-50%);
 }
@@ -79,7 +79,7 @@ section .title::after{
   top: 0;
   left: 0;
   width: 100%;
-  background-color: #FFC300 ;
+  background-color: #222 ;
   padding:15px 0;
   z-index: 1000;
 }
@@ -110,7 +110,7 @@ section .title::after{
 }
 
 .navbar .menu li a:hover{
-  color: #B11616;
+  color: #f96161;
 }
 .navbar.sticky .menu li a:hover{
   color: #f5f5f5;
@@ -127,7 +127,7 @@ section .title::after{
   position: fixed;
   height: 45px;
   width: 42px;
-  background: #FFC300 ;
+  background: #f96161 ;
   right: 30px;
   bottom: 10px;
   text-align: center;
@@ -181,40 +181,32 @@ margin-right: 0;
   margin: 5px 0;
 }
 .home .home-content .text-3 span{
-  color: #FFC300 ;
+  color: #f96161 ;
   font-weight: 500;
 }
 .home .home-content a,
 .technical-skills a{
   display: inline-block;
-  background: #FFC300 ;
+  background: #f96161 ;
   color: #f5f5f5;
   font-size: 25px;
   padding: 12px 36px;
   margin-top: 20px;
   font-weight: 400;
   border-radius: 6px;
-  border: 2px solid #FFC300 ;
+  border: 2px solid #f96161 ;
   transition: all 0.3s ease;
 }
 .home .home-content a:hover,
 .technical-skills a:hover{
-  color: #FFC300 ;
+  color: #f5f5f5 ;
   background: none;
 }
 /* about section styling */
 
-.about .about-content .left{
-  width: 45%;
-}
-.about .about-content .left img{
-  height: 400px;
-  width: 400px;
-  object-fit: cover;
-  border-radius: 6px;
-}
 .about .about-content .right{
-  width: 55%;
+  width: 80%;
+  margin: auto;
 }
 .about .about-content .right .text{
   font-size: 25px;
@@ -223,42 +215,44 @@ margin-right: 0;
   font-family: 'Fredoka', sans-serif;
 }
 .about .about-content .right .text span{
-  color: #FFC300 ;
+  color: #f96161 ;
 }
 .about .about-content .right p{
   text-align: justify;
 }
 .about .about-content .right a{
   display: inline-block;
-  background: #FFC300 ;
+  background: #f96161 ;
   color: #f5f5f5;
   font-size: 20px;
   font-weight: 500;
   padding: 10px 30px;
   margin-top: 20px;
   border-radius: 6px;
-  border: 2px solid #FFC300 ;
+  border: 2px solid #f96161 ;
   transition: all 0.3s ease;
 }
 .about .about-content .right a:hover{
-  color: #FFC300 ;
+  color: #3ca3ed ;
   background: none;
 }
-/* services section styling */
-.services, .porfolio{
+/* core section styling */
+.core, .porfolio{
   margin-left:20%;
   border-radius: 20px;
   color:#f5f5f5;
-  background: #B11616;
+  background:  rgba(95, 92, 92, 0.9);
+  backdrop-filter: blur(5px);
+
 }
-.services .title::before,
+.core .title::before,
 .porfolio .title::before{
   background: #f5f5f5;
 }
-.services .serv-content .card{
+ .card{
   width: calc(50% - 20px);
   margin-left: 22%;
-  background: #aa3d3d;
+  background: #222;
   text-align: center;
   border-radius: 6px;
   padding: 50px 25px;
@@ -266,35 +260,45 @@ margin-right: 0;
   cursor: pointer;
   transition: all 0.3s ease;
 }
-.services .serv-content .card:hover{
-  background: #FFC300 ;
+ .card:hover{
+  background: #f96161 ;
 }
-.services .serv-content .card .box{
+.card .box{
   transition: all 0.3s ease;
 }
-.services .serv-content .card:hover .box{
+ .card:hover .box{
   transform: scale(1.05);
 }
-.services .serv-content .card i{
+ .card i{
   font-size: 50px;
-  color: #FFC300 ;
+  color: #f96161 ;
   transition: color 0.3s ease;
 }
-.services .serv-content .card:hover i{
+ .card:hover i{
   color: #f5f5f5;
 }
-.services .serv-content .card .text{
+ .card .text{
   font-size: 25px;
   font-weight: 500;
   margin: 10px 0 7px 0;
   font-family: 'Fredoka', sans-serif;
 }
 /* skills section styling */
+.technical-skills{
+  margin-left:20%;
+  border-radius: 20px;
+  color:#f5f5f5;
+  background: rgba(93, 87, 87, 0.9);
+  backdrop-filter: blur(5px);
+  margin-top:20%;
+  margin-bottom:20%;
+
+}
 
 .technical-skills .skills-content{
   margin-left:20%;
   font-weight: 700;
-  color:#a77b04;
+  color:#111;
 }
 .technical-skills .skills-content .right .bars{
   margin-bottom: 15px;
@@ -321,25 +325,34 @@ margin-right: 0;
   height: 100%;
   left: 0;
   top: 0;
-  background: #B11616;
+  background: #f96161;
 }
 .skills-content .right .html::before{
   width: 70%;
 }
 .skills-content .right .css::before{
-  width: 50%;
+  width: 60%;
 }
 .skills-content .right .js::before{
-  width: 50%;
+  width: 60%;
+}
+.skills-content .right .python::before{
+  width: 65%;
+}
+.skills-content .right .flask::before{
+  width: 35%;
+}
+.skills-content .right .sqlalchemy::before{
+  width: 45%;
 }
 .skills-content .right .php::before{
-  width: 50%;
+  width: 60%;
 }
 .skills-content .right .scss::before{
   width: 40%;
 }
 .skills-content .right .mysql::before{
-  width: 70%;
+  width: 60%;
 }
 
 .technical-skills a{
@@ -350,12 +363,13 @@ margin-right: 0;
  .links a{
   text-decoration: none;
   color:#f1f1f1;
-  margin-left:25%;
+  display: flex;
+  margin-left: 40%;
   font-size: 35px;
 }
 
 .links a:hover{
-  color:#FFC300
+  color:#f96161
 }
 
 /* artistic skills*/
@@ -372,7 +386,7 @@ margin-right: 0;
 		padding-bottom: 38%;
 	  user-select: none;
 		background-color: #1c1c1c;
-		border: solid 10px #FFC300;
+		border: solid 10px #f96161;
 		border-radius:10px ; 
 	}
 
@@ -460,6 +474,13 @@ margin-right: 0;
 	#i5:checked  ~  #nav_slide #dot5
 	{ background-color: rgba(255,255,255,.9);}
 
+
+  .displayFlex{
+    display: flex;
+    text-align: center;
+    margin-right: 20%;
+  }
+
 @keyframes scroll{
 	0%{	opacity:.4;}
 	100%{opacity:1;}
@@ -472,7 +493,7 @@ footer{
   text-align: center;
 }
 footer span a{
-  color: #FFC300 ;
+  color: #f96161 ;
   text-decoration: none;
 }
 footer span a:hover{
@@ -544,7 +565,7 @@ footer span a:hover{
   .about .about-content .right{
       flex: 100%;
   }
-  .services .serv-content .card{
+  .core .serv-content .card{
       width: calc(50% - 10px);
       margin-bottom: 20px;
   }
@@ -567,7 +588,7 @@ footer span a:hover{
   .home .home-content a{
       font-size: 20px;
   }
-  .services .serv-content .card{
+  .core .serv-content .card{
       width: 100%;
   }
 }

@@ -15,15 +15,15 @@ camera.position.setZ(30);
 
 renderer.render(scene,camera);
 
-const bgTexture = new THREE.TextureLoader().load('https://i.postimg.cc/c4zY1TQ0/augustine-wong-3-Om4-DHca-Ac0-unsplash.jpg');
+const bgTexture = new THREE.TextureLoader().load('./assets/img/textures/pexels-sasha-martimov-1260727.jpg');
 scene.background= bgTexture;
 
-const geometry = new THREE.TorusGeometry(15,3,16,370)
-const material = new THREE.MeshStandardMaterial({color: 0xDF1C1C});
+const geometry = new THREE.TorusGeometry(8,3,16,37)
+const material = new THREE.MeshStandardMaterial({color: 0x222});
 const torus= new THREE.Mesh(geometry, material);
 scene.add(torus);
 
-const avatartexture = new THREE.TextureLoader().load('https://i.postimg.cc/yxBg5b4y/jpg.jpg')
+const avatartexture = new THREE.TextureLoader().load('jpg.jpg')
 const avatar = new THREE.Mesh(
   new THREE.BoxGeometry(1,1,1),
   new THREE.MeshBasicMaterial( {map: avatartexture})
@@ -41,7 +41,7 @@ pointLight.position.set(100,100,50)
 scene.add(pointLight, pointLight2);
 
 const geo = new THREE.ConeGeometry( 5, 18, 32 );
-const materiel = new THREE.MeshStandardMaterial( {color: 0xFFC300} );
+const materiel = new THREE.MeshStandardMaterial( {color: 0x222} );
 const cone = new THREE.Mesh( geo, materiel );
 cone.position.set(-40,0,5);
 scene.add( cone );
@@ -53,41 +53,29 @@ cylinder.position.set(-70,0,125);
 scene.add( cylinder );
 
 function addsphere(){
-  const geometry = new THREE.SphereGeometry(0.25,24,24);
-  const matherial = new THREE.MeshStandardMaterial( {color : 0xDF1C1C})
+  const geometry = new THREE.SphereGeometry(2,1,1);
+  const matherial = new THREE.MeshStandardMaterial( {color : 0x8e3535})
   const sphere = new THREE.Mesh(geometry, matherial);
 
-  const [x,y,z] = Array(3).fill().map(() => THREE.MathUtils.randFloatSpread(300));
-
-  sphere.position.set(x,y,z);
-  scene.add(sphere)
-} 
-
-function addyellowsphere(){
-  const geometry = new THREE.SphereGeometry(0.35,21,21);
-  const matherial = new THREE.MeshStandardMaterial( {color : 0xFFC300})
-  const sphere = new THREE.Mesh(geometry, matherial);
-
-  const [x,y,z] = Array(3).fill().map(() => THREE.MathUtils.randFloatSpread(300));
+  const [x,y,z] = Array(50).fill().map(() => THREE.MathUtils.randFloatSpread(80));
 
   sphere.position.set(x,y,z);
   scene.add(sphere)
 } 
 
 
-Array(200).fill().forEach(addsphere)
-Array(300).fill().forEach(addyellowsphere)
+
+Array(3).fill().forEach(addsphere)
 
 function animate(){
   requestAnimationFrame(animate);
 
-  torus.rotation.x += 0.01;
-  torus.rotation.y += 0.005;
-  torus.rotation.z += 0.01;
-  avatar.rotation.y += 0.005;
-  avatar.rotation.x -= 0.001;
-  cylinder.rotation.x += 0.001;
-  cylinder.rotation.y += 0.01;
+  torus.rotation.x += 0.001;
+  torus.rotation.y += 0.0005;
+  avatar.rotation.y += 0.0005;
+  avatar.rotation.x -= 0.0001;
+  cylinder.rotation.x += 0.0001;
+  cylinder.rotation.y += 0.001;
   renderer.render(scene,camera);
 }
 
@@ -105,57 +93,3 @@ function movecamera(){
 document.body.onscroll = movecamera;
 
 animate()
-
-//JS Natif
-
-$(document).ready(function(){
-    $(window).scroll(function(){
-        // sticky navbar on scroll script
-        if(this.scrollY > 20){
-            $('.navbar').addClass("sticky");
-        }else{
-            $('.navbar').removeClass("sticky");
-        }
-        
-        // scroll-up button show/hide script
-        if(this.scrollY > 500){
-            $('.scroll-up-btn').addClass("show");
-        }else{
-            $('.scroll-up-btn').removeClass("show");
-        }
-    });
-
-    // slide-up script
-    $('.scroll-up-btn').click(function(){
-        $('html').animate({scrollTop: 0});
-        // removing smooth scroll on slide-up button click
-        $('html').css("scrollBehavior", "auto");
-    });
-
-    $('.navbar .menu li a').click(function(){
-        // applying again smooth scroll on menu items click
-        $('html').css("scrollBehavior", "smooth");
-    });
-
-    // toggle menu/navbar script
-    $('.menu-btn').click(function(){
-        $('.navbar .menu').toggleClass("active");
-        $('.menu-btn i').toggleClass("active");
-    });
-
-    // typing text animation script
-    var typed = new Typed(".typing", {
-        strings: [" Designeuse", " Développeur Front", " Développeur Back"],
-        typeSpeed: 100,
-        backSpeed: 60,
-        loop: true
-    });
-
-    var typed = new Typed(".typing-2", {
-        strings: [" Designeuse", " Développeur Front", " Développeur Back"],
-        typeSpeed: 100,
-        backSpeed: 60,
-        loop: true
-    });
-
-});
